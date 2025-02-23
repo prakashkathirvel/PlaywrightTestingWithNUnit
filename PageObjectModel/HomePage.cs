@@ -1,4 +1,5 @@
 using Microsoft.Playwright;
+using PlaywrightTestingWithNUnit;
 
 public class HomePage
 {
@@ -7,6 +8,16 @@ public class HomePage
     {
         _page = page;
     }
-    public ILocator txtHeading_PracticeApplications => _page.GetByText("Practice Applications and Pages For Automating and Testing");
-
+    public CommonActions commonActions => new(_page);
+    private ILocator _txtHeading_PracticeApplications => _page.GetByText("Practice Applications and Pages For Automating and Testing");
+    private ILocator _lnkHomeFormExample => _page.Locator("#htmlformtest");
+    public async Task ClickHomeFormExample()
+    {
+        await _lnkHomeFormExample.ClickAsync();
+        await CommonMethods.CaptureScreenshotAsync(_page, "Clicked on Home Form link");
+    }
+    public async Task ValidateHeading(){
+        await Assertions.Expect(_txtHeading_PracticeApplications).ToBeVisibleAsync();
+        await CommonMethods.CaptureScreenshotAsync(_page,"Validating heading");
+    }
 }

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Allure.NUnit" Version="2.12.1" />
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Microsoft.Playwright.NUnit" Version="1.50.0" />
@@ -20,6 +21,9 @@
     <None Update="chrome.runsettings">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Utils/test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
