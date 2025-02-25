@@ -19,15 +19,20 @@ public class HomePageTest : BaseTest
     [AllureName("Verify Title")]
     public async Task HasTitle()
     {
-        AllureApi.Step("Verify Title");
         // Expect title is matching ot the expected title. 
         await _homePage.commonActions.AssertTitleAsync("Web Testing and Automation Practice Application Pages");
+    }
+    [Test]
+    [AllureName("Verify All UI Elements")]
+    public async Task ValidateAllUIElementsInHomePage()
+    {
+        // Expects all UI elements are visible on the page
+        await _homePage.ValidateAllUIElements();
     }
     [Test]
     [AllureName("Verify Heading")]
     public async Task AssertHeading()
     {
-        AllureApi.Step("Verify Heading");
         // Expects page have heading with matching text
         await _homePage.ValidateHeading();
     } 
