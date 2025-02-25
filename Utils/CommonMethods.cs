@@ -15,5 +15,14 @@ namespace PlaywrightTestingWithNUnit
         public static void AddTestParameter_Allure(string key, string value){
             AllureApi.AddTestParameter(key,value);
         }
+        //Method to add step to allure report
+        public static void AddStep_Allure(string stepName){
+            AllureApi.Step(stepName);
+        }
+        //Method to add step with screenshot to allure report
+        public static async Task AddStepWithScreenshot_AllureAsync(IPage page, string stepName){
+            AllureApi.Step(stepName);
+            await CaptureScreenshotAsync(page, stepName);
+        }
     }
 }

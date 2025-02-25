@@ -16,7 +16,7 @@ namespace PlaywrightTestingWithNUnit
             {
                 throw new Exception($"Title assertion failed. Expected: {expectedTitle}, Actual: {actualTitle}");
             }
-            await CommonMethods.CaptureScreenshotAsync(_page, "Asserting Title");
+            await CommonMethods.AddStepWithScreenshot_AllureAsync(_page, "Asserting Title ......");
         }
         //Method to assert URL of the webpage
         public async Task AssertURLAsync(string expectedURL){
@@ -24,7 +24,7 @@ namespace PlaywrightTestingWithNUnit
             if(actualURL != expectedURL){
                 throw new Exception ($"URL assertion failed. Expected: {expectedURL}, Actual: {actualURL}");
             }
-            await CommonMethods.CaptureScreenshotAsync(_page,"Asserting URL");
+            await CommonMethods.AddStepWithScreenshot_AllureAsync(_page,"Asserting URL ......");
         }
     }
 }
